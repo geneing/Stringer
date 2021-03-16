@@ -1,0 +1,4 @@
+*.gcode*
+*.FCStd?
+*.FCBak
+*.step
