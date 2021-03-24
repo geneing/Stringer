@@ -59,7 +59,7 @@ void setup()
   digitalWrite(scopeTriggerPin, LOW);
   pinMode(scopeTriggerPin, OUTPUT);
 
-  Serial.begin(9600);
+  Serial.begin(57600);
   SPI.begin();
   pinMode(amisStepPin, OUTPUT);
   stepper.init(amisSlaveSelect);

@@ -23,7 +23,7 @@ AMIS30543 stepper;
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(57600);
   Serial.println(F("setup 1."));
   SPI.begin();
   stepper.init(amisSlaveSelect);
@@ -46,7 +46,7 @@ void setup()
   stepper.setCurrentMilliamps(1000);
 
   // Set the number of microsteps that correspond to one full step.
-  stepper.setStepMode(4);
+  stepper.setStepMode(1);
 
   // Enable the motor outputs.
   stepper.enableDriver();
@@ -55,7 +55,7 @@ void setup()
 void loop()
 {
   // Step in the default direction 1000 times.
-  setDirection(0);
+  setDirection(1);
   for (unsigned int x = 0; x < 1000; x++)
   {
     step();
@@ -65,7 +65,7 @@ void loop()
   //delay(3000);
 
 //  // Step in the other direction 1000 times.
-//  setDirection(1);
+//  setDirection(0);
 //  for (unsigned int x = 0; x < 10000; x++)
 //  {
 //    step();
@@ -90,7 +90,7 @@ void step()
   // you decrease the delay, the stepper motor will go fast, but
   // there is a limit to how fast it can go before it starts
   // missing steps.
-  delayMicroseconds(2500);
+  delayMicroseconds(1000);
 }
 
 // Writes a high or low value to the direction pin to specify
